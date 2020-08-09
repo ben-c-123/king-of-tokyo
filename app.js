@@ -1,54 +1,61 @@
 const rollDice = document.querySelector(".roll-dice");
-const diceOne = document.querySelector(".dice-one");
-const diceTwo = document.querySelector(".dice-two");
-const diceThree = document.querySelector(".dice-three");
-const diceFour = document.querySelector(".dice-four");
-const diceFive = document.querySelector(".dice-five");
-const diceSix = document.querySelector(".dice-six");
-const reroll = document.querySelector(".reroll");
+const select = document.querySelector(".select");
+const clicked = document.getElementsByClassName("clicked");
+const rollsLeft = document.querySelector("#rolls-left");
+
+const rolls = document.querySelector(".rolls");
+const dice = document.querySelectorAll(".dice");
+
+
+var count = 2;
 
 rollDice.addEventListener("click", function(){
+  rolls.innerHTML = "You have " + count + " roll(s) left! Click the dice you want to KEEP!"
+  count--;
   rolling();
-  rollsLeft();
-
+  if (count == -1){
+    rolls.innerHTML = "Turn finished! Next player press 'Select' to continue";
+    
+  }
 });
 
-
+dice.forEach(function(die){
+  die.addEventListener("click", function(){
+    this.classList.toggle("clicked");
+  })
+});
 
 function rolling(){
-
-  const display = document.querySelector(".display");
-
-  const dice = [diceOne, diceTwo, diceThree, diceFour, diceFive, diceSix];
-
-  for (var i = 0; i < dice.length + 1; i++) {
-    let rollOutcome = (Math.floor(Math.random() * 6 + 1));
-
-    if (rollOutcome == 1){
-      dice[i].innerHTML = "1";
+  dice.forEach(function(die){
+    if (die.classList.contains('clicked')){
+      let rollOutcome = (Math.floor(Math.random() * 6 + 1));
+      if (rollOutcome == 1){
+        die.innerHTML = "1";
+      }
+      else if (rollOutcome == 2){
+        die.innerHTML = "2";
+      }
+      else if (rollOutcome == 3){
+        die.innerHTML = "3";
+      }
+      else if (rollOutcome == 4){
+        die.innerHTML = '<img src="health.png">';
+      }
+      else if (rollOutcome == 5){
+        die.innerHTML = '<img src="paw.png">';
+      }
+      else if (rollOutcome == 6){
+        die.innerHTML = '<img src="lightning.png">';
+      }
     }
-    else if (rollOutcome == 2){
-      dice[i].innerHTML = "2";
-    }
-    else if (rollOutcome == 3){
-      dice[i].innerHTML = "3";
-    }
-    else if (rollOutcome == 4){
-      dice[i].innerHTML = '<img src="health.png">';
-    }
-    else if (rollOutcome == 5){
-      dice[i].innerHTML = '<img src="paw.png">';
-    }
-    else if (rollOutcome == 6){
-      dice[i].innerHTML = '<img src="lightning.png">';
-    }
-  };
-
-  function rollsLeft(){
-    const rollsLeft = document.getElementById("rolls-left");
-    rollsLeft.innerHTML = "2";
-    console.log("is this thing on?");
-  };
-
-
+  })
 };
+
+select.addEventListener('click', function(){
+  dice.forEach(function(die){
+    count = 2;
+    die.innerHTML = "";
+    die.classList.add("clicked");
+    rolls.innerHTML = "Roll the dice!"
+  })
+});
