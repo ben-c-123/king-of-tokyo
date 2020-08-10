@@ -3,8 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-.dice{
+body{
+  text-align: center;
+}
+h1{
+  font-family: 'Luckiest Guy', cursive;
+}
+p{
+  font-family: 'Rowdies', cursive;
+}
+.dice:hover{
+  box-shadow: 5px 10px #888888;
+}
+.dice,
+.select-players{
   height: 80px;
   width: 80px;
   background-color: green;
@@ -13,7 +25,9 @@
   font-size: 2.5rem;
   border-radius: 15px;
   margin: 10px;
-
+}
+.select-players:hover{
+  background-color: #32a852;
 }
 button{
   border-radius: 5px;
@@ -23,10 +37,21 @@ button{
   padding: 5px;
   margin: 20px;
 }
+
 .display{
   text-align: center;
   padding:10px;
 }
 .clicked{
   background-color: #32a852;
+}
+.conceal{
+  opacity: 0;
+}
+.reveal{
+  opacity: 100%;
+}
+section{
+  position: relative;
+  top: 60px;
 }
