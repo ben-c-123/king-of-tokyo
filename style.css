@@ -5,6 +5,7 @@
 }
 body{
   text-align: center;
+  background: #e6ac9c
 }
 h1{
   font-family: 'Luckiest Guy', cursive;
@@ -21,7 +22,7 @@ p{
   width: 80px;
   background-color: green;
   color: black;
-  font-family: sans-serif;
+  font-family: 'Rowdies', cursive;
   font-size: 2.5rem;
   border-radius: 15px;
   margin: 10px;
@@ -33,9 +34,12 @@ button{
   border-radius: 5px;
   background-color: green;
   color: white;
-  font-size: 15px;
+  font-size: 1rem;
   padding: 5px;
   margin: 20px;
+  transition: all 0.3s ease;
+  font-family: 'Rowdies', cursive;
+  letter-spacing: 1px;
 }
 
 .display{
@@ -54,4 +58,45 @@ button{
 section{
   position: relative;
   top: 60px;
+}
+.pointy{
+  position: relative;
+  top: 80px;
+  right: 180px;
+}
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Rowdies', cursive;
+}
+.name-input,
+.name-btn{
+  padding: 0.5rem;
+  font-size: 1rem;
+
+  /* font-family: 'Rowdies', cursive; */
+}
+.name-input{
+  border-radius: 15px;
+  background: #32a852;
+  font-family: 'Rowdies', cursive;
+  max-width: 100px;
+  min-width: 20px;
+
+}
+form button{
+  /* color: #d88771; */
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-image: url(checked.png);
+}
+
+
+
+form button:hover{
+  background-color: #32a852;
 }

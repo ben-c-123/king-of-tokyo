@@ -12,10 +12,6 @@ const section = document.querySelector("section");
 const conceal = document.querySelector(".conceal");
 const reveal = document.querySelector(".reveal");
 
-const points = document.querySelector(".points");
-
-points.innerHTML = 0;
-
 selectPlayers.forEach(function(amount){
   amount.addEventListener('click', function(){
     header.classList.add('conceal');
@@ -26,19 +22,15 @@ selectPlayers.forEach(function(amount){
 })
 
 
-// const playerScore = 0;
-// const playerHealth = 10;
-// const player1 = {
-//   name: "Player 1",
-//   health: 10,
-//   points: 0,
-//   gems: 0
-// };
+const playerScore = 0;
+const playerHealth = 10;
+const player1 = {
+  name: "Player 1",
+  health: 10,
+  points: 0,
+  gems: 0
+};
 
-
-
-var nameOne = document.querySelector("name-input");
-var nameTwo = document.querySelector("name-input-two");
 function Player(name){
   this.name = name;
 }
@@ -46,7 +38,7 @@ function Player(name){
 Player.prototype.health = 10;
 Player.prototype.points = 0;
 Player.prototype.gems = 0;
-const player1 = new Player(nameOne);
+const ben = new Player("Ben");
 
 
 var count = 2;
@@ -61,7 +53,7 @@ rollDice.addEventListener("click", function(){
   }
 });
 
-
+//toggle class when dice clicked
   dice.forEach(function(die){
     die.addEventListener("click", function(){
       this.classList.toggle("clicked");
@@ -72,42 +64,28 @@ rollDice.addEventListener("click", function(){
 
 
 select.addEventListener('click', function(){
-  let one = 0;
-  let two = 0;
-  let three = 0;
   dice.forEach(function(die){
-    if (die.innerHTML == "1"){
-      one++;
-    }
-    if (die.innerHTML == "2"){
-      two++;
-    }
-    if (die.innerHTML == "3"){
-      three++;
-    }
     count = 2;
-    die.innerHTML = "";
     die.classList.add("clicked");
     rolls.innerHTML = "Roll the dice!"
     rollDice.disabled = false;
+    // die.classList.disable("clicked");
+    var countOnes = 0;
+    if (die.innerHTML == '1'){
+      countOnes++;
+      die.innerHTML = "";
+      console.log(countOnes);
+    }
+    if (countOnes >= 3){
+      ben.points == countOnes - 2;
+    }
+    console.log(ben.points);
   })
-  if (one >= 3){
-    player1.points += (one -2);
-    points.innerHTML = (player1.points);
-    console.log(player1.points);
-  }
-  if (two >= 3){
-    player1.points += (two -1);
-    points.innerHTML = (player1.points);
-    console.log(player1.points);
-  }
-  if (three >= 3){
-    player1.points += (three);
-    points.innerHTML = (player1.points);
-    console.log(player1.points);
-  }
 });
 
+// function checkOnes(){
+//   dice.forEach(function(die){
+// }
 
 function rolling(){
   dice.forEach(function(die){
