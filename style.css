@@ -13,9 +13,26 @@ h1{
 p{
   font-family: 'Rowdies', cursive;
 }
+/* main{
+  position: absolute;
+}
+header{
+  position: relative;
+  z-index: 3;
+}
+.enter-name{
+  position: relative;
+  z-index: 2;
+}
+.dice-section{
+  position: relative;
+  z-index: 1;
+} */
+
 .dice:hover{
   box-shadow: 5px 10px #888888;
 }
+
 .dice,
 .select-players{
   height: 80px;

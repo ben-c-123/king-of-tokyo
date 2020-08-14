@@ -13,6 +13,10 @@ const conceal = document.querySelector(".conceal");
 const reveal = document.querySelector(".reveal");
 
 const points = document.querySelector(".points");
+const nameBtn = document.querySelector(".name-btn");
+// let nameOne = document.querySelector("name-input").value;
+
+playerTurn = document.querySelector("#player-turn");
 
 points.innerHTML = 0;
 
@@ -22,22 +26,32 @@ selectPlayers.forEach(function(amount){
     header.classList.remove("reveal");
     section.classList.add('reveal');
     section.classList.remove("conceal");
+    // playerTurn.innerHTML = nameOne;
   });
 })
+
+playerOne = document.querySelector(".name-input").value;
+
+nameBtn.addEventListener("click", function(){
+  var playerOne = document.querySelector(".name-input").value;
+  console.log(playerOne);
+  return false;
+});
 
 
 // const playerScore = 0;
 // const playerHealth = 10;
-// const player1 = {
-//   name: "Player 1",
-//   health: 10,
-//   points: 0,
-//   gems: 0
-// };
+const player1 = {
+  name: playerOne,
+  health: 10,
+  points: 0,
+  gems: 0
+};
 
 
 
-var nameOne = document.querySelector("name-input");
+
+
 var nameTwo = document.querySelector("name-input-two");
 function Player(name){
   this.name = name;
@@ -46,7 +60,7 @@ function Player(name){
 Player.prototype.health = 10;
 Player.prototype.points = 0;
 Player.prototype.gems = 0;
-const player1 = new Player(nameOne);
+// const player1 = new Player(nameOne);
 
 
 var count = 2;
@@ -105,6 +119,9 @@ select.addEventListener('click', function(){
     player1.points += (three);
     points.innerHTML = (player1.points);
     console.log(player1.points);
+  }
+  if (player1.points >= 5){
+    console.log(player1.name + " Wins!!!!!!!!!!");
   }
 });
 
